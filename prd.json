@@ -1,0 +1,235 @@
+{
+  "stories": [
+    {
+      "id": "S-001",
+      "title": "Core Contract and CLI Skeleton",
+      "priority": 1,
+      "acceptance_criteria": [
+        "Repository tree includes required core/backend/record/replay/command/policy/train/eval/dagger modules.",
+        "Command, Status, AtomicAction, Observation, GuardSpec contracts are defined and serializable.",
+        "JSONL read/write utilities and timestamp alignment helper exist.",
+        "CLI provides record/replay/build-dataset/train/rollout/dagger collect/dagger merge/export with --help."
+      ],
+      "non_goals": [
+        "Implement external VLM planner",
+        "Complex long-horizon planning"
+      ],
+      "constraints": [
+        "Use Python package layout under vla/",
+        "All logs and training/eval artifacts must use contract schema"
+      ],
+      "dependencies": [],
+      "risks": [
+        "Schema drift between modules",
+        "CLI argument inconsistency"
+      ],
+      "success_metrics": [
+        "All core tests pass",
+        "All required CLI --help commands are callable"
+      ],
+      "status": "todo",
+      "mode": "phase-config",
+      "phase_config": {
+        "implementer_commands": [],
+        "testsmith_commands": [],
+        "verifier_commands": [],
+        "review_commands": [],
+        "qa_commands": []
+      }
+    },
+    {
+      "id": "S-002",
+      "title": "Backend Plugin and Demo Record/Replay",
+      "priority": 1,
+      "acceptance_criteria": [
+        "Backend base interface exposes capture_frame/get_cursor/get_window_meta/send_action/sleep/time.",
+        "local_macos backend supports best-effort capture and input injection with graceful permission errors.",
+        "record command saves manifest/frames/obs.jsonl/actions.jsonl/tags.jsonl in runs/record_*.",
+        "replay command replays recorded actions and can view frame stream."
+      ],
+      "non_goals": [
+        "Full VM backend implementation",
+        "Perfect cross-platform automation"
+      ],
+      "constraints": [
+        "Prefer mss capture",
+        "Use pyautogui or pynput for injection/listening",
+        "Document macOS accessibility and screen recording permission requirements"
+      ],
+      "dependencies": [
+        "S-001"
+      ],
+      "risks": [
+        "OS permission failures",
+        "Input injection variability"
+      ],
+      "success_metrics": [
+        "1-minute record run can be saved",
+        "Replay can consume recorded run"
+      ],
+      "status": "todo",
+      "mode": "phase-config",
+      "phase_config": {
+        "implementer_commands": [],
+        "testsmith_commands": [],
+        "verifier_commands": [],
+        "review_commands": [],
+        "qa_commands": []
+      }
+    },
+    {
+      "id": "S-003",
+      "title": "Tagging and Dataset Builder",
+      "priority": 1,
+      "acceptance_criteria": [
+        "tagging workflow can emit CMD_START/SET_ROI/CAPTURE_REF_PATCH/CMD_END events to tags.jsonl.",
+        "build-dataset converts runs/record_* into datasets/<name>/episodes/ep_*/cmd.json and steps.jsonl.",
+        "Step alignment matches nearest observation where obs.t <= action.t with default 100ms tolerance.",
+        "MOVE event inclusion is configurable for teacher labels."
+      ],
+      "non_goals": [
+        "Auto semantic command segmentation without tags"
+      ],
+      "constraints": [
+        "Warn or drop unaligned steps based on config",
+        "Keep output compatible with BC training input"
+      ],
+      "dependencies": [
+        "S-001",
+        "S-002"
+      ],
+      "risks": [
+        "Sparse or noisy tags causing short episodes",
+        "Alignment mistakes reducing data quality"
+      ],
+      "success_metrics": [
+        "Dataset build produces episodes with at least 10 steps in sample run"
+      ],
+      "status": "todo",
+      "mode": "phase-config",
+      "phase_config": {
+        "implementer_commands": [],
+        "testsmith_commands": [],
+        "verifier_commands": [],
+        "review_commands": [],
+        "qa_commands": []
+      }
+    },
+    {
+      "id": "S-005",
+      "title": "Rollout/Eval, Guard, Latency, Failure Pack",
+      "priority": 1,
+      "acceptance_criteria": [
+        "rollout supports file: and stdin command sources and optional ws placeholder.",
+        "Each command executes loop with budget limits and returns Status SUCCESS/FAIL/NEED_HELP/TIMEOUT.",
+        "Guard types NOOP/VISUAL_CHANGE/TEMPLATE_MATCH are supported in MVP form.",
+        "Latency per step records capture_ms/policy_infer_ms/inject_ms/guard_ms and summary includes p50/p95 and success/stuck rates.",
+        "Failures automatically emit replayable failure_packs with cmd/status/obs/actions/frames."
+      ],
+      "non_goals": [
+        "External planner orchestration",
+        "Autonomous environment reset"
+      ],
+      "constraints": [
+        "Persist rollout artifacts under runs/rollout_*",
+        "Status schema must be contract compliant"
+      ],
+      "dependencies": [
+        "S-001",
+        "S-004"
+      ],
+      "risks": [
+        "Guard false positives/negatives",
+        "Latency overhead from image operations"
+      ],
+      "success_metrics": [
+        "Rollout summary reports p50/p95 inference latency",
+        "Failure pack can be replayed with vla replay --pack"
+      ],
+      "status": "todo",
+      "mode": "phase-config",
+      "phase_config": {
+        "implementer_commands": [],
+        "testsmith_commands": [],
+        "verifier_commands": [],
+        "review_commands": [],
+        "qa_commands": []
+      }
+    },
+    {
+      "id": "S-004",
+      "title": "Offline BC Training and Model Export",
+      "priority": 2,
+      "acceptance_criteria": [
+        "PyTorch baseline model supports command-conditioned action prediction.",
+        "train CLI runs 1 epoch from built dataset and produces model.pt, metrics.jsonl, config snapshot.",
+        "Reported metrics include action_type_acc, click_dist_px, heatmap_topk_hit@k.",
+        "export CLI provides ONNX export path for trained model."
+      ],
+      "non_goals": [
+        "SOTA model quality",
+        "Large-scale distributed training"
+      ],
+      "constraints": [
+        "Start with simple CNN+MLP",
+        "Favor pipeline completeness and runtime simplicity"
+      ],
+      "dependencies": [
+        "S-003"
+      ],
+      "risks": [
+        "Dataset sparsity may destabilize training",
+        "Optional dependency friction (torch)"
+      ],
+      "success_metrics": [
+        "vla train completes 1 epoch without runtime error"
+      ],
+      "status": "todo",
+      "mode": "phase-config",
+      "phase_config": {
+        "implementer_commands": [],
+        "testsmith_commands": [],
+        "verifier_commands": [],
+        "review_commands": [],
+        "qa_commands": []
+      }
+    },
+    {
+      "id": "S-006",
+      "title": "DAgger Correction Collection and Merge",
+      "priority": 2,
+      "acceptance_criteria": [
+        "dagger collect opens minimal UI and records corrected click/action_type to corrections.jsonl.",
+        "dagger merge applies corrected labels to episode steps and writes versioned dataset output.",
+        "Loop supports retraining with merged dataset version."
+      ],
+      "non_goals": [
+        "Rich annotation tool",
+        "Online DAgger orchestration service"
+      ],
+      "constraints": [
+        "Correction format includes cmd_id, step_idx, corrected_action",
+        "Merged dataset must preserve original structure"
+      ],
+      "dependencies": [
+        "S-005"
+      ],
+      "risks": [
+        "Wrong step indexing during merge",
+        "Low quality manual correction"
+      ],
+      "success_metrics": [
+        "At least one correction can be collected and merged into new dataset version"
+      ],
+      "status": "todo",
+      "mode": "phase-config",
+      "phase_config": {
+        "implementer_commands": [],
+        "testsmith_commands": [],
+        "verifier_commands": [],
+        "review_commands": [],
+        "qa_commands": []
+      }
+    }
+  ]
+}
