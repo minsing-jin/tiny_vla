@@ -1,32 +1,29 @@
-# Story S-006: DAgger Correction Collection and Merge
+# Story S-006: # 2.1 Command
 
 ## Project Context
 - project: VLA Executor Framework
-- goal: Train and evaluate an executor-only VLA that consumes external planner commands and executes atomic UI actions with record/build/train/rollout/dagger loop.
+- goal: 외부 VLM이 생성한 Command를 화면 원자 액션으로 안정적으로 실행하는 Executor-VLA 구축
 
 ## Goal
-DAgger Correction Collection and Merge
+# 2.1 Command
 
 ## Acceptance Criteria
-- dagger collect opens minimal UI and records corrected click/action_type to corrections.jsonl.
-- dagger merge applies corrected labels to episode steps and writes versioned dataset output.
-- Loop supports retraining with merged dataset version.
+- # 2.1 Command meets documented requirements
 
 ## Non-goals
-- Rich annotation tool
-- Online DAgger orchestration service
+- Keep scope strictly to '# 2.1 Command'
 
 ## Constraints
-- Correction format includes cmd_id, step_idx, corrected_action
-- Merged dataset must preserve original structure
+- Respect budget-related requirement from PRD context
+- Respect latency-related requirement from PRD context
 
 ## Dependencies
-- S-005
+- (none)
 
 ## Risks
-- Wrong step indexing during merge
-- Low quality manual correction
+- Potential risk risk inferred from PRD context
 
 ## Success Metrics
-- At least one correction can be collected and merged into new dataset version
+- Latency target is satisfied
+- Automated tests pass for acceptance criteria
 

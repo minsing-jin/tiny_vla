@@ -1,33 +1,29 @@
-# Story S-003: Tagging and Dataset Builder
+# Story S-003: # 1.1 레포 구조(필수)
 
 ## Project Context
 - project: VLA Executor Framework
-- goal: Train and evaluate an executor-only VLA that consumes external planner commands and executes atomic UI actions with record/build/train/rollout/dagger loop.
+- goal: 외부 VLM이 생성한 Command를 화면 원자 액션으로 안정적으로 실행하는 Executor-VLA 구축
 
 ## Goal
-Tagging and Dataset Builder
+# 1.1 레포 구조(필수)
 
 ## Acceptance Criteria
-- tagging workflow can emit CMD_START/SET_ROI/CAPTURE_REF_PATCH/CMD_END events to tags.jsonl.
-- build-dataset converts runs/record_* into datasets/<name>/episodes/ep_*/cmd.json and steps.jsonl.
-- Step alignment matches nearest observation where obs.t <= action.t with default 100ms tolerance.
-- MOVE event inclusion is configurable for teacher labels.
+- # 1.1 레포 구조(필수) meets documented requirements
 
 ## Non-goals
-- Auto semantic command segmentation without tags
+- Keep scope strictly to '# 1.1 레포 구조(필수)'
 
 ## Constraints
-- Warn or drop unaligned steps based on config
-- Keep output compatible with BC training input
+- Respect budget-related requirement from PRD context
+- Respect latency-related requirement from PRD context
 
 ## Dependencies
-- S-001
-- S-002
+- (none)
 
 ## Risks
-- Sparse or noisy tags causing short episodes
-- Alignment mistakes reducing data quality
+- Potential risk risk inferred from PRD context
 
 ## Success Metrics
-- Dataset build produces episodes with at least 10 steps in sample run
+- Latency target is satisfied
+- Automated tests pass for acceptance criteria
 

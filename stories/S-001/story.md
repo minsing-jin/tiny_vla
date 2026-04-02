@@ -1,34 +1,29 @@
-# Story S-001: Core Contract and CLI Skeleton
+# Story S-001: 0) 프로젝트 목표 (반드시 이대로)
 
 ## Project Context
 - project: VLA Executor Framework
-- goal: Train and evaluate an executor-only VLA that consumes external planner commands and executes atomic UI actions with record/build/train/rollout/dagger loop.
+- goal: 외부 VLM이 생성한 Command를 화면 원자 액션으로 안정적으로 실행하는 Executor-VLA 구축
 
 ## Goal
-Core Contract and CLI Skeleton
+0) 프로젝트 목표 (반드시 이대로)
 
 ## Acceptance Criteria
-- Repository tree includes required core/backend/record/replay/command/policy/train/eval/dagger modules.
-- Command, Status, AtomicAction, Observation, GuardSpec contracts are defined and serializable.
-- JSONL read/write utilities and timestamp alignment helper exist.
-- CLI provides record/replay/build-dataset/train/rollout/dagger collect/dagger merge/export with --help.
+- 0) 프로젝트 목표 (반드시 이대로) meets documented requirements
 
 ## Non-goals
-- Implement external VLM planner
-- Complex long-horizon planning
+- Keep scope strictly to '0) 프로젝트 목표 (반드시 이대로)'
 
 ## Constraints
-- Use Python package layout under vla/
-- All logs and training/eval artifacts must use contract schema
+- Respect budget-related requirement from PRD context
+- Respect latency-related requirement from PRD context
 
 ## Dependencies
 - (none)
 
 ## Risks
-- Schema drift between modules
-- CLI argument inconsistency
+- Potential risk risk inferred from PRD context
 
 ## Success Metrics
-- All core tests pass
-- All required CLI --help commands are callable
+- Latency target is satisfied
+- Automated tests pass for acceptance criteria
 

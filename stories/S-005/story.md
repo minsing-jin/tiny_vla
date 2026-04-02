@@ -1,36 +1,29 @@
-# Story S-005: Rollout/Eval, Guard, Latency, Failure Pack
+# Story S-005: 2) 핵심 계약(Contract)
 
 ## Project Context
 - project: VLA Executor Framework
-- goal: Train and evaluate an executor-only VLA that consumes external planner commands and executes atomic UI actions with record/build/train/rollout/dagger loop.
+- goal: 외부 VLM이 생성한 Command를 화면 원자 액션으로 안정적으로 실행하는 Executor-VLA 구축
 
 ## Goal
-Rollout/Eval, Guard, Latency, Failure Pack
+2) 핵심 계약(Contract)
 
 ## Acceptance Criteria
-- rollout supports file: and stdin command sources and optional ws placeholder.
-- Each command executes loop with budget limits and returns Status SUCCESS/FAIL/NEED_HELP/TIMEOUT.
-- Guard types NOOP/VISUAL_CHANGE/TEMPLATE_MATCH are supported in MVP form.
-- Latency per step records capture_ms/policy_infer_ms/inject_ms/guard_ms and summary includes p50/p95 and success/stuck rates.
-- Failures automatically emit replayable failure_packs with cmd/status/obs/actions/frames.
+- 2) 핵심 계약(Contract) meets documented requirements
 
 ## Non-goals
-- External planner orchestration
-- Autonomous environment reset
+- Keep scope strictly to '2) 핵심 계약(Contract)'
 
 ## Constraints
-- Persist rollout artifacts under runs/rollout_*
-- Status schema must be contract compliant
+- Respect budget-related requirement from PRD context
+- Respect latency-related requirement from PRD context
 
 ## Dependencies
-- S-001
-- S-004
+- (none)
 
 ## Risks
-- Guard false positives/negatives
-- Latency overhead from image operations
+- Potential risk risk inferred from PRD context
 
 ## Success Metrics
-- Rollout summary reports p50/p95 inference latency
-- Failure pack can be replayed with vla replay --pack
+- Latency target is satisfied
+- Automated tests pass for acceptance criteria
 

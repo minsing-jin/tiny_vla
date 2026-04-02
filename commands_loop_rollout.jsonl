@@ -1,0 +1,1 @@
+{"cmd_id": "r1", "skill": "CLICK_UI", "hint": {"roi_bbox": [0, 0, 10, 10]}, "constraints": {}, "guard": {"type": "NOOP"}, "budget": {"max_steps": 2, "max_seconds": 0.2, "max_retries": 1}}

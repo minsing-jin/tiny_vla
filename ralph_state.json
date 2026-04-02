@@ -1,0 +1,34 @@
+{
+  "failures": [
+    {
+      "story_id": "S-021",
+      "attempt": 1,
+      "phase": "builder",
+      "command": "test -d datasets/real_executor/episodes",
+      "returncode": 1,
+      "timestamp": "2026-03-02T15:10:31.413325+00:00"
+    },
+    {
+      "story_id": "S-021",
+      "attempt": 2,
+      "phase": "builder",
+      "command": "test -d datasets/real_executor/episodes",
+      "returncode": 1,
+      "timestamp": "2026-03-02T15:10:31.506434+00:00"
+    },
+    {
+      "story_id": "S-021",
+      "attempt": 3,
+      "phase": "builder",
+      "command": "test -d datasets/real_executor/episodes",
+      "returncode": 1,
+      "timestamp": "2026-03-02T15:10:31.598408+00:00"
+    }
+  ],
+  "current_story_id": "S-021",
+  "last_run": "2026-03-02T15:10:31.384581+00:00",
+  "constraints": [
+    "--dangerously-skip-permissions",
+    "--allow-git-push"
+  ]
+}

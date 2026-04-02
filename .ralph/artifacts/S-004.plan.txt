@@ -1,0 +1,1 @@
+specify:S-004:_1.2_CLI_meets_documented_requirements

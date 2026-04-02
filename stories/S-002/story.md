@@ -1,35 +1,29 @@
-# Story S-002: Backend Plugin and Demo Record/Replay
+# Story S-002: 1) 산출물(Deliverables)
 
 ## Project Context
 - project: VLA Executor Framework
-- goal: Train and evaluate an executor-only VLA that consumes external planner commands and executes atomic UI actions with record/build/train/rollout/dagger loop.
+- goal: 외부 VLM이 생성한 Command를 화면 원자 액션으로 안정적으로 실행하는 Executor-VLA 구축
 
 ## Goal
-Backend Plugin and Demo Record/Replay
+1) 산출물(Deliverables)
 
 ## Acceptance Criteria
-- Backend base interface exposes capture_frame/get_cursor/get_window_meta/send_action/sleep/time.
-- local_macos backend supports best-effort capture and input injection with graceful permission errors.
-- record command saves manifest/frames/obs.jsonl/actions.jsonl/tags.jsonl in runs/record_*.
-- replay command replays recorded actions and can view frame stream.
+- 1) 산출물(Deliverables) meets documented requirements
 
 ## Non-goals
-- Full VM backend implementation
-- Perfect cross-platform automation
+- Keep scope strictly to '1) 산출물(Deliverables)'
 
 ## Constraints
-- Prefer mss capture
-- Use pyautogui or pynput for injection/listening
-- Document macOS accessibility and screen recording permission requirements
+- Respect budget-related requirement from PRD context
+- Respect latency-related requirement from PRD context
 
 ## Dependencies
-- S-001
+- (none)
 
 ## Risks
-- OS permission failures
-- Input injection variability
+- Potential risk risk inferred from PRD context
 
 ## Success Metrics
-- 1-minute record run can be saved
-- Replay can consume recorded run
+- Latency target is satisfied
+- Automated tests pass for acceptance criteria
 

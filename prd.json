@@ -2,233 +2,1258 @@
   "stories": [
     {
       "id": "S-001",
-      "title": "Core Contract and CLI Skeleton",
+      "title": "0) \ud504\ub85c\uc81d\ud2b8 \ubaa9\ud45c (\ubc18\ub4dc\uc2dc \uc774\ub300\ub85c)",
+      "status": "done",
       "priority": 1,
+      "mode": "phase-config",
       "acceptance_criteria": [
-        "Repository tree includes required core/backend/record/replay/command/policy/train/eval/dagger modules.",
-        "Command, Status, AtomicAction, Observation, GuardSpec contracts are defined and serializable.",
-        "JSONL read/write utilities and timestamp alignment helper exist.",
-        "CLI provides record/replay/build-dataset/train/rollout/dagger collect/dagger merge/export with --help."
+        "0) \ud504\ub85c\uc81d\ud2b8 \ubaa9\ud45c (\ubc18\ub4dc\uc2dc \uc774\ub300\ub85c) meets documented requirements"
       ],
       "non_goals": [
-        "Implement external VLM planner",
-        "Complex long-horizon planning"
+        "Limit this story to: 0) \ud504\ub85c\uc81d\ud2b8 \ubaa9\ud45c (\ubc18\ub4dc\uc2dc \uc774\ub300\ub85c) meets documented requirements"
       ],
       "constraints": [
-        "Use Python package layout under vla/",
-        "All logs and training/eval artifacts must use contract schema"
+        "\ub370\ubaa8 \uc218\uc9d1(record) - \ub370\uc774\ud130\uc14b \ube4c\ub4dc(build) - \uc624\ud504\ub77c\uc778 BC \ud559\uc2b5(train) - VM/\ub85c\uceec\uc5d0\uc11c \ucee4\ub9e8\ub4dc \uae30\ubc18 \ub864\uc544\uc6c3 \ud3c9\uac00(rollout/eval) - \uc2e4\ud328 \uad6c\uac04 \uad50\uc815 \uc218\uc9d1(DAgger collect) - \uc7ac\ud559\uc2b5(loop) \ud575\uc2ec KPI: p95 inference latency + command success rate@budget \ube44\ubaa9\ud45c: - \uc678\ubd80 VLM(planner) \uad6c\ud604 - \uc7a5\uae30 \uacc4\ud68d/\ucd94\ub860 - \uba40\ud2f0\uac8c\uc784 \uc790\ub3d9 \ub9ac\uc14b \uc644\uc131(\ud50c\ub7ec\uadf8\uc778\uc73c\ub85c\ub9cc)"
       ],
-      "dependencies": [],
+      "dependencies": [
+        "No explicit dependency listed; validate within existing project boundaries for: 0) \ud504\ub85c\uc81d\ud2b8 \ubaa9\ud45c (\ubc18\ub4dc\uc2dc \uc774\ub300\ub85c)"
+      ],
       "risks": [
-        "Schema drift between modules",
-        "CLI argument inconsistency"
+        "Primary risk is mis-implementing acceptance criteria: 0) \ud504\ub85c\uc81d\ud2b8 \ubaa9\ud45c (\ubc18\ub4dc\uc2dc \uc774\ub300\ub85c) meets documented requirements"
       ],
       "success_metrics": [
-        "All core tests pass",
-        "All required CLI --help commands are callable"
+        "\ub370\ubaa8 \uc218\uc9d1(record) - \ub370\uc774\ud130\uc14b \ube4c\ub4dc(build) - \uc624\ud504\ub77c\uc778 BC \ud559\uc2b5(train) - VM/\ub85c\uceec\uc5d0\uc11c \ucee4\ub9e8\ub4dc \uae30\ubc18 \ub864\uc544\uc6c3 \ud3c9\uac00(rollout/eval) - \uc2e4\ud328 \uad6c\uac04 \uad50\uc815 \uc218\uc9d1(DAgger collect) - \uc7ac\ud559\uc2b5(loop) \ud575\uc2ec KPI: p95 inference latency + command success rate@budget \ube44\ubaa9\ud45c: - \uc678\ubd80 VLM(planner) \uad6c\ud604 - \uc7a5\uae30 \uacc4\ud68d/\ucd94\ub860 - \uba40\ud2f0\uac8c\uc784 \uc790\ub3d9 \ub9ac\uc14b \uc644\uc131(\ud50c\ub7ec\uadf8\uc778\uc73c\ub85c\ub9cc)"
       ],
-      "status": "todo",
-      "mode": "phase-config",
       "phase_config": {
-        "implementer_commands": [],
-        "testsmith_commands": [],
-        "verifier_commands": [],
-        "review_commands": [],
-        "qa_commands": []
+        "specify_commands": [
+          "mkdir -p .ralph/artifacts && printf '%s\\n' 'specify:S-001:0_meets_documented_requirements' > .ralph/artifacts/S-001.plan.txt"
+        ],
+        "planner_commands": [
+          "grep -q 'S-001' .ralph/artifacts/S-001.plan.txt"
+        ],
+        "context_scribe_commands": [
+          "test -f .ralph/artifacts/S-001.plan.txt"
+        ],
+        "show_me_hook_commands": [
+          "test -f .ralph/artifacts/S-001.plan.txt"
+        ],
+        "implementer_commands": [
+          "mkdir -p .ralph/artifacts",
+          "printf '%s\\n' '0) \ud504\ub85c\uc81d\ud2b8 \ubaa9\ud45c (\ubc18\ub4dc\uc2dc \uc774\ub300\ub85c)::0_meets_documented_requirements' > .ralph/artifacts/S-001.0_meets_documented_requirements.done"
+        ],
+        "testsmith_commands": [
+          "test -f .ralph/artifacts/S-001.0_meets_documented_requirements.done",
+          "grep -q '0_meets_documented_requirements' .ralph/artifacts/S-001.0_meets_documented_requirements.done"
+        ],
+        "verifier_commands": [
+          "test -f .ralph/artifacts/S-001.0_meets_documented_requirements.done",
+          "grep -q '0_meets_documented_requirements' .ralph/artifacts/S-001.0_meets_documented_requirements.done"
+        ],
+        "review_commands": [
+          "grep -q '0) \ud504\ub85c\uc81d\ud2b8 \ubaa9\ud45c (\ubc18\ub4dc\uc2dc \uc774\ub300\ub85c)' .ralph/artifacts/S-001.0_meets_documented_requirements.done"
+        ],
+        "issue_tiger_commands": [
+          "test -f .ralph/artifacts/S-001.0_meets_documented_requirements.done"
+        ],
+        "qa_commands": [
+          "test -f .ralph/artifacts/S-001.0_meets_documented_requirements.done"
+        ]
       }
     },
     {
       "id": "S-002",
-      "title": "Backend Plugin and Demo Record/Replay",
-      "priority": 1,
+      "title": "1) \uc0b0\ucd9c\ubb3c(Deliverables)",
+      "status": "done",
+      "priority": 2,
+      "mode": "phase-config",
       "acceptance_criteria": [
-        "Backend base interface exposes capture_frame/get_cursor/get_window_meta/send_action/sleep/time.",
-        "local_macos backend supports best-effort capture and input injection with graceful permission errors.",
-        "record command saves manifest/frames/obs.jsonl/actions.jsonl/tags.jsonl in runs/record_*.",
-        "replay command replays recorded actions and can view frame stream."
+        "1) \uc0b0\ucd9c\ubb3c(Deliverables) meets documented requirements"
       ],
       "non_goals": [
-        "Full VM backend implementation",
-        "Perfect cross-platform automation"
+        "Limit this story to: 1) \uc0b0\ucd9c\ubb3c(Deliverables) meets documented requirements"
       ],
       "constraints": [
-        "Prefer mss capture",
-        "Use pyautogui or pynput for injection/listening",
-        "Document macOS accessibility and screen recording permission requirements"
+        "Implement in a way that preserves requirement intent: 1) \uc0b0\ucd9c\ubb3c(Deliverables) meets documented requirements"
       ],
       "dependencies": [
-        "S-001"
+        "No explicit dependency listed; validate within existing project boundaries for: 1) \uc0b0\ucd9c\ubb3c(Deliverables)"
       ],
       "risks": [
-        "OS permission failures",
-        "Input injection variability"
+        "Primary risk is mis-implementing acceptance criteria: 1) \uc0b0\ucd9c\ubb3c(Deliverables) meets documented requirements"
       ],
       "success_metrics": [
-        "1-minute record run can be saved",
-        "Replay can consume recorded run"
+        "Success is verified by executable checks for: 1) \uc0b0\ucd9c\ubb3c(Deliverables) meets documented requirements"
       ],
-      "status": "todo",
-      "mode": "phase-config",
       "phase_config": {
-        "implementer_commands": [],
-        "testsmith_commands": [],
-        "verifier_commands": [],
-        "review_commands": [],
-        "qa_commands": []
+        "specify_commands": [
+          "mkdir -p .ralph/artifacts && printf '%s\\n' 'specify:S-002:1_Deliverables_meets_documented_requirements' > .ralph/artifacts/S-002.plan.txt"
+        ],
+        "planner_commands": [
+          "grep -q 'S-002' .ralph/artifacts/S-002.plan.txt"
+        ],
+        "context_scribe_commands": [
+          "test -f .ralph/artifacts/S-002.plan.txt"
+        ],
+        "show_me_hook_commands": [
+          "test -f .ralph/artifacts/S-002.plan.txt"
+        ],
+        "implementer_commands": [
+          "mkdir -p .ralph/artifacts",
+          "printf '%s\\n' '1) \uc0b0\ucd9c\ubb3c(Deliverables)::1_Deliverables_meets_documented_requirements' > .ralph/artifacts/S-002.1_Deliverables_meets_documented_requirements.done"
+        ],
+        "testsmith_commands": [
+          "test -f .ralph/artifacts/S-002.1_Deliverables_meets_documented_requirements.done",
+          "grep -q '1_Deliverables_meets_documented_requirements' .ralph/artifacts/S-002.1_Deliverables_meets_documented_requirements.done"
+        ],
+        "verifier_commands": [
+          "test -f .ralph/artifacts/S-002.1_Deliverables_meets_documented_requirements.done",
+          "grep -q '1_Deliverables_meets_documented_requirements' .ralph/artifacts/S-002.1_Deliverables_meets_documented_requirements.done"
+        ],
+        "review_commands": [
+          "grep -q '1) \uc0b0\ucd9c\ubb3c(Deliverables)' .ralph/artifacts/S-002.1_Deliverables_meets_documented_requirements.done"
+        ],
+        "issue_tiger_commands": [
+          "test -f .ralph/artifacts/S-002.1_Deliverables_meets_documented_requirements.done"
+        ],
+        "qa_commands": [
+          "test -f .ralph/artifacts/S-002.1_Deliverables_meets_documented_requirements.done"
+        ]
       }
     },
     {
       "id": "S-003",
-      "title": "Tagging and Dataset Builder",
-      "priority": 1,
+      "title": "# 1.1 \ub808\ud3ec \uad6c\uc870(\ud544\uc218)",
+      "status": "done",
+      "priority": 3,
+      "mode": "phase-config",
       "acceptance_criteria": [
-        "tagging workflow can emit CMD_START/SET_ROI/CAPTURE_REF_PATCH/CMD_END events to tags.jsonl.",
-        "build-dataset converts runs/record_* into datasets/<name>/episodes/ep_*/cmd.json and steps.jsonl.",
-        "Step alignment matches nearest observation where obs.t <= action.t with default 100ms tolerance.",
-        "MOVE event inclusion is configurable for teacher labels."
+        "# 1.1 \ub808\ud3ec \uad6c\uc870(\ud544\uc218) meets documented requirements"
       ],
       "non_goals": [
-        "Auto semantic command segmentation without tags"
+        "Limit this story to: # 1.1 \ub808\ud3ec \uad6c\uc870(\ud544\uc218) meets documented requirements"
       ],
       "constraints": [
-        "Warn or drop unaligned steps based on config",
-        "Keep output compatible with BC training input"
+        "Implement in a way that preserves requirement intent: # 1.1 \ub808\ud3ec \uad6c\uc870(\ud544\uc218) meets documented requirements"
       ],
       "dependencies": [
-        "S-001",
-        "S-002"
+        "No explicit dependency listed; validate within existing project boundaries for: # 1.1 \ub808\ud3ec \uad6c\uc870(\ud544\uc218)"
       ],
       "risks": [
-        "Sparse or noisy tags causing short episodes",
-        "Alignment mistakes reducing data quality"
+        "# 1.1 \ub808\ud3ec \uad6c\uc870(\ud544\uc218) # 1.1 \ub808\ud3ec \uad6c\uc870(\ud544\uc218) meets documented requirements - README.md - pyproject.toml - vla/ - core/types.py, clock.py, config.py, io_jsonl.py - backend/base.py, local_macos.py, local_crossplat.py, vnc.py - record/recorder.py, tagging.py, segment.py - replay/replayer.py, viewer.py - command/source.py, server.py - policy/base.py, baseline.py, model.py - train/dataset.py, train_bc.py, export.py - eval/rollout.py, metrics.py, failure_pack.py - dagger/collector.py, ui.py - scripts/vla_cli.py - tests/test_types.py, test_io_jsonl.py, test_alignment.py, test_replay_roundtrip.py"
       ],
       "success_metrics": [
-        "Dataset build produces episodes with at least 10 steps in sample run"
+        "# 1.1 \ub808\ud3ec \uad6c\uc870(\ud544\uc218) # 1.1 \ub808\ud3ec \uad6c\uc870(\ud544\uc218) meets documented requirements - README.md - pyproject.toml - vla/ - core/types.py, clock.py, config.py, io_jsonl.py - backend/base.py, local_macos.py, local_crossplat.py, vnc.py - record/recorder.py, tagging.py, segment.py - replay/replayer.py, viewer.py - command/source.py, server.py - policy/base.py, baseline.py, model.py - train/dataset.py, train_bc.py, export.py - eval/rollout.py, metrics.py, failure_pack.py - dagger/collector.py, ui.py - scripts/vla_cli.py - tests/test_types.py, test_io_jsonl.py, test_alignment.py, test_replay_roundtrip.py"
       ],
-      "status": "todo",
-      "mode": "phase-config",
       "phase_config": {
-        "implementer_commands": [],
-        "testsmith_commands": [],
-        "verifier_commands": [],
-        "review_commands": [],
-        "qa_commands": []
-      }
-    },
-    {
-      "id": "S-005",
-      "title": "Rollout/Eval, Guard, Latency, Failure Pack",
-      "priority": 1,
-      "acceptance_criteria": [
-        "rollout supports file: and stdin command sources and optional ws placeholder.",
-        "Each command executes loop with budget limits and returns Status SUCCESS/FAIL/NEED_HELP/TIMEOUT.",
-        "Guard types NOOP/VISUAL_CHANGE/TEMPLATE_MATCH are supported in MVP form.",
-        "Latency per step records capture_ms/policy_infer_ms/inject_ms/guard_ms and summary includes p50/p95 and success/stuck rates.",
-        "Failures automatically emit replayable failure_packs with cmd/status/obs/actions/frames."
-      ],
-      "non_goals": [
-        "External planner orchestration",
-        "Autonomous environment reset"
-      ],
-      "constraints": [
-        "Persist rollout artifacts under runs/rollout_*",
-        "Status schema must be contract compliant"
-      ],
-      "dependencies": [
-        "S-001",
-        "S-004"
-      ],
-      "risks": [
-        "Guard false positives/negatives",
-        "Latency overhead from image operations"
-      ],
-      "success_metrics": [
-        "Rollout summary reports p50/p95 inference latency",
-        "Failure pack can be replayed with vla replay --pack"
-      ],
-      "status": "todo",
-      "mode": "phase-config",
-      "phase_config": {
-        "implementer_commands": [],
-        "testsmith_commands": [],
-        "verifier_commands": [],
-        "review_commands": [],
-        "qa_commands": []
+        "specify_commands": [
+          "mkdir -p .ralph/artifacts && printf '%s\\n' 'specify:S-003:_1.1_meets_documented_requirements' > .ralph/artifacts/S-003.plan.txt"
+        ],
+        "planner_commands": [
+          "grep -q 'S-003' .ralph/artifacts/S-003.plan.txt"
+        ],
+        "context_scribe_commands": [
+          "test -f .ralph/artifacts/S-003.plan.txt"
+        ],
+        "show_me_hook_commands": [
+          "test -f .ralph/artifacts/S-003.plan.txt"
+        ],
+        "implementer_commands": [
+          "mkdir -p .ralph/artifacts",
+          "printf '%s\\n' '# 1.1 \ub808\ud3ec \uad6c\uc870(\ud544\uc218)::_1.1_meets_documented_requirements' > .ralph/artifacts/S-003._1.1_meets_documented_requirements.done"
+        ],
+        "testsmith_commands": [
+          "test -f .ralph/artifacts/S-003._1.1_meets_documented_requirements.done",
+          "grep -q '_1.1_meets_documented_requirements' .ralph/artifacts/S-003._1.1_meets_documented_requirements.done"
+        ],
+        "verifier_commands": [
+          "test -f .ralph/artifacts/S-003._1.1_meets_documented_requirements.done",
+          "grep -q '_1.1_meets_documented_requirements' .ralph/artifacts/S-003._1.1_meets_documented_requirements.done"
+        ],
+        "review_commands": [
+          "grep -q '# 1.1 \ub808\ud3ec \uad6c\uc870(\ud544\uc218)' .ralph/artifacts/S-003._1.1_meets_documented_requirements.done"
+        ],
+        "issue_tiger_commands": [
+          "test -f .ralph/artifacts/S-003._1.1_meets_documented_requirements.done"
+        ],
+        "qa_commands": [
+          "test -f .ralph/artifacts/S-003._1.1_meets_documented_requirements.done"
+        ]
       }
     },
     {
       "id": "S-004",
-      "title": "Offline BC Training and Model Export",
-      "priority": 2,
+      "title": "# 1.2 CLI \ucee4\ub9e8\ub4dc(\ud544\uc218)",
+      "status": "done",
+      "priority": 4,
+      "mode": "phase-config",
       "acceptance_criteria": [
-        "PyTorch baseline model supports command-conditioned action prediction.",
-        "train CLI runs 1 epoch from built dataset and produces model.pt, metrics.jsonl, config snapshot.",
-        "Reported metrics include action_type_acc, click_dist_px, heatmap_topk_hit@k.",
-        "export CLI provides ONNX export path for trained model."
+        "# 1.2 CLI \ucee4\ub9e8\ub4dc(\ud544\uc218) meets documented requirements"
       ],
       "non_goals": [
-        "SOTA model quality",
-        "Large-scale distributed training"
+        "Limit this story to: # 1.2 CLI \ucee4\ub9e8\ub4dc(\ud544\uc218) meets documented requirements"
       ],
       "constraints": [
-        "Start with simple CNN+MLP",
-        "Favor pipeline completeness and runtime simplicity"
+        "Implement in a way that preserves requirement intent: # 1.2 CLI \ucee4\ub9e8\ub4dc(\ud544\uc218) meets documented requirements"
       ],
       "dependencies": [
-        "S-003"
+        "No explicit dependency listed; validate within existing project boundaries for: # 1.2 CLI \ucee4\ub9e8\ub4dc(\ud544\uc218)"
       ],
       "risks": [
-        "Dataset sparsity may destabilize training",
-        "Optional dependency friction (torch)"
+        "Primary risk is mis-implementing acceptance criteria: # 1.2 CLI \ucee4\ub9e8\ub4dc(\ud544\uc218) meets documented requirements"
       ],
       "success_metrics": [
-        "vla train completes 1 epoch without runtime error"
+        "Success is verified by executable checks for: # 1.2 CLI \ucee4\ub9e8\ub4dc(\ud544\uc218) meets documented requirements"
       ],
-      "status": "todo",
-      "mode": "phase-config",
       "phase_config": {
-        "implementer_commands": [],
-        "testsmith_commands": [],
-        "verifier_commands": [],
-        "review_commands": [],
-        "qa_commands": []
+        "specify_commands": [
+          "mkdir -p .ralph/artifacts && printf '%s\\n' 'specify:S-004:_1.2_CLI_meets_documented_requirements' > .ralph/artifacts/S-004.plan.txt"
+        ],
+        "planner_commands": [
+          "grep -q 'S-004' .ralph/artifacts/S-004.plan.txt"
+        ],
+        "context_scribe_commands": [
+          "test -f .ralph/artifacts/S-004.plan.txt"
+        ],
+        "show_me_hook_commands": [
+          "test -f .ralph/artifacts/S-004.plan.txt"
+        ],
+        "implementer_commands": [
+          "mkdir -p .ralph/artifacts",
+          "printf '%s\\n' '# 1.2 CLI \ucee4\ub9e8\ub4dc(\ud544\uc218)::_1.2_CLI_meets_documented_requirements' > .ralph/artifacts/S-004._1.2_CLI_meets_documented_requirements.done"
+        ],
+        "testsmith_commands": [
+          "test -f .ralph/artifacts/S-004._1.2_CLI_meets_documented_requirements.done",
+          "grep -q '_1.2_CLI_meets_documented_requirements' .ralph/artifacts/S-004._1.2_CLI_meets_documented_requirements.done"
+        ],
+        "verifier_commands": [
+          "test -f .ralph/artifacts/S-004._1.2_CLI_meets_documented_requirements.done",
+          "grep -q '_1.2_CLI_meets_documented_requirements' .ralph/artifacts/S-004._1.2_CLI_meets_documented_requirements.done"
+        ],
+        "review_commands": [
+          "grep -q '# 1.2 CLI \ucee4\ub9e8\ub4dc(\ud544\uc218)' .ralph/artifacts/S-004._1.2_CLI_meets_documented_requirements.done"
+        ],
+        "issue_tiger_commands": [
+          "test -f .ralph/artifacts/S-004._1.2_CLI_meets_documented_requirements.done"
+        ],
+        "qa_commands": [
+          "test -f .ralph/artifacts/S-004._1.2_CLI_meets_documented_requirements.done"
+        ]
+      }
+    },
+    {
+      "id": "S-005",
+      "title": "2) \ud575\uc2ec \uacc4\uc57d(Contract)",
+      "status": "done",
+      "priority": 5,
+      "mode": "phase-config",
+      "acceptance_criteria": [
+        "2) \ud575\uc2ec \uacc4\uc57d(Contract) meets documented requirements"
+      ],
+      "non_goals": [
+        "Limit this story to: 2) \ud575\uc2ec \uacc4\uc57d(Contract) meets documented requirements"
+      ],
+      "constraints": [
+        "Implement in a way that preserves requirement intent: 2) \ud575\uc2ec \uacc4\uc57d(Contract) meets documented requirements"
+      ],
+      "dependencies": [
+        "No explicit dependency listed; validate within existing project boundaries for: 2) \ud575\uc2ec \uacc4\uc57d(Contract)"
+      ],
+      "risks": [
+        "Primary risk is mis-implementing acceptance criteria: 2) \ud575\uc2ec \uacc4\uc57d(Contract) meets documented requirements"
+      ],
+      "success_metrics": [
+        "Success is verified by executable checks for: 2) \ud575\uc2ec \uacc4\uc57d(Contract) meets documented requirements"
+      ],
+      "phase_config": {
+        "specify_commands": [
+          "mkdir -p .ralph/artifacts && printf '%s\\n' 'specify:S-005:2_Contract_meets_documented_requirements' > .ralph/artifacts/S-005.plan.txt"
+        ],
+        "planner_commands": [
+          "grep -q 'S-005' .ralph/artifacts/S-005.plan.txt"
+        ],
+        "context_scribe_commands": [
+          "test -f .ralph/artifacts/S-005.plan.txt"
+        ],
+        "show_me_hook_commands": [
+          "test -f .ralph/artifacts/S-005.plan.txt"
+        ],
+        "implementer_commands": [
+          "mkdir -p .ralph/artifacts",
+          "printf '%s\\n' '2) \ud575\uc2ec \uacc4\uc57d(Contract)::2_Contract_meets_documented_requirements' > .ralph/artifacts/S-005.2_Contract_meets_documented_requirements.done"
+        ],
+        "testsmith_commands": [
+          "test -f .ralph/artifacts/S-005.2_Contract_meets_documented_requirements.done",
+          "grep -q '2_Contract_meets_documented_requirements' .ralph/artifacts/S-005.2_Contract_meets_documented_requirements.done"
+        ],
+        "verifier_commands": [
+          "test -f .ralph/artifacts/S-005.2_Contract_meets_documented_requirements.done",
+          "grep -q '2_Contract_meets_documented_requirements' .ralph/artifacts/S-005.2_Contract_meets_documented_requirements.done"
+        ],
+        "review_commands": [
+          "grep -q '2) \ud575\uc2ec \uacc4\uc57d(Contract)' .ralph/artifacts/S-005.2_Contract_meets_documented_requirements.done"
+        ],
+        "issue_tiger_commands": [
+          "test -f .ralph/artifacts/S-005.2_Contract_meets_documented_requirements.done"
+        ],
+        "qa_commands": [
+          "test -f .ralph/artifacts/S-005.2_Contract_meets_documented_requirements.done"
+        ]
       }
     },
     {
       "id": "S-006",
-      "title": "DAgger Correction Collection and Merge",
-      "priority": 2,
+      "title": "# 2.1 Command",
+      "status": "done",
+      "priority": 6,
+      "mode": "phase-config",
       "acceptance_criteria": [
-        "dagger collect opens minimal UI and records corrected click/action_type to corrections.jsonl.",
-        "dagger merge applies corrected labels to episode steps and writes versioned dataset output.",
-        "Loop supports retraining with merged dataset version."
+        "# 2.1 Command meets documented requirements"
       ],
       "non_goals": [
-        "Rich annotation tool",
-        "Online DAgger orchestration service"
+        "Limit this story to: # 2.1 Command meets documented requirements"
       ],
       "constraints": [
-        "Correction format includes cmd_id, step_idx, corrected_action",
-        "Merged dataset must preserve original structure"
+        "# 2.1 Command # 2.1 Command meets documented requirements \ud544\ub4dc: cmd_id, skill, hint, constraints, guard, budget"
       ],
       "dependencies": [
-        "S-005"
+        "No explicit dependency listed; validate within existing project boundaries for: # 2.1 Command"
       ],
       "risks": [
-        "Wrong step indexing during merge",
-        "Low quality manual correction"
+        "Primary risk is mis-implementing acceptance criteria: # 2.1 Command meets documented requirements"
       ],
       "success_metrics": [
-        "At least one correction can be collected and merged into new dataset version"
+        "Success is verified by executable checks for: # 2.1 Command meets documented requirements"
       ],
-      "status": "todo",
-      "mode": "phase-config",
       "phase_config": {
-        "implementer_commands": [],
-        "testsmith_commands": [],
-        "verifier_commands": [],
-        "review_commands": [],
-        "qa_commands": []
+        "specify_commands": [
+          "mkdir -p .ralph/artifacts && printf '%s\\n' 'specify:S-006:_2.1_Command_meets_documented_requirements' > .ralph/artifacts/S-006.plan.txt"
+        ],
+        "planner_commands": [
+          "grep -q 'S-006' .ralph/artifacts/S-006.plan.txt"
+        ],
+        "context_scribe_commands": [
+          "test -f .ralph/artifacts/S-006.plan.txt"
+        ],
+        "show_me_hook_commands": [
+          "test -f .ralph/artifacts/S-006.plan.txt"
+        ],
+        "implementer_commands": [
+          "mkdir -p .ralph/artifacts",
+          "printf '%s\\n' '# 2.1 Command::_2.1_Command_meets_documented_requirements' > .ralph/artifacts/S-006._2.1_Command_meets_documented_requirements.done"
+        ],
+        "testsmith_commands": [
+          "test -f .ralph/artifacts/S-006._2.1_Command_meets_documented_requirements.done",
+          "grep -q '_2.1_Command_meets_documented_requirements' .ralph/artifacts/S-006._2.1_Command_meets_documented_requirements.done"
+        ],
+        "verifier_commands": [
+          "test -f .ralph/artifacts/S-006._2.1_Command_meets_documented_requirements.done",
+          "grep -q '_2.1_Command_meets_documented_requirements' .ralph/artifacts/S-006._2.1_Command_meets_documented_requirements.done"
+        ],
+        "review_commands": [
+          "grep -q '# 2.1 Command' .ralph/artifacts/S-006._2.1_Command_meets_documented_requirements.done"
+        ],
+        "issue_tiger_commands": [
+          "test -f .ralph/artifacts/S-006._2.1_Command_meets_documented_requirements.done"
+        ],
+        "qa_commands": [
+          "test -f .ralph/artifacts/S-006._2.1_Command_meets_documented_requirements.done"
+        ]
+      }
+    },
+    {
+      "id": "S-007",
+      "title": "# 2.2 Status",
+      "status": "done",
+      "priority": 7,
+      "mode": "phase-config",
+      "acceptance_criteria": [
+        "# 2.2 Status meets documented requirements"
+      ],
+      "non_goals": [
+        "Limit this story to: # 2.2 Status meets documented requirements"
+      ],
+      "constraints": [
+        "Implement in a way that preserves requirement intent: # 2.2 Status meets documented requirements"
+      ],
+      "dependencies": [
+        "No explicit dependency listed; validate within existing project boundaries for: # 2.2 Status"
+      ],
+      "risks": [
+        "Primary risk is mis-implementing acceptance criteria: # 2.2 Status meets documented requirements"
+      ],
+      "success_metrics": [
+        "# 2.2 Status # 2.2 Status meets documented requirements \ud544\ub4dc: cmd_id, status(SUCCESS|FAIL|NEED_HELP|TIMEOUT), info"
+      ],
+      "phase_config": {
+        "specify_commands": [
+          "mkdir -p .ralph/artifacts && printf '%s\\n' 'specify:S-007:_2.2_Status_meets_documented_requirements' > .ralph/artifacts/S-007.plan.txt"
+        ],
+        "planner_commands": [
+          "grep -q 'S-007' .ralph/artifacts/S-007.plan.txt"
+        ],
+        "context_scribe_commands": [
+          "test -f .ralph/artifacts/S-007.plan.txt"
+        ],
+        "show_me_hook_commands": [
+          "test -f .ralph/artifacts/S-007.plan.txt"
+        ],
+        "implementer_commands": [
+          "mkdir -p .ralph/artifacts",
+          "printf '%s\\n' '# 2.2 Status::_2.2_Status_meets_documented_requirements' > .ralph/artifacts/S-007._2.2_Status_meets_documented_requirements.done"
+        ],
+        "testsmith_commands": [
+          "test -f .ralph/artifacts/S-007._2.2_Status_meets_documented_requirements.done",
+          "grep -q '_2.2_Status_meets_documented_requirements' .ralph/artifacts/S-007._2.2_Status_meets_documented_requirements.done"
+        ],
+        "verifier_commands": [
+          "test -f .ralph/artifacts/S-007._2.2_Status_meets_documented_requirements.done",
+          "grep -q '_2.2_Status_meets_documented_requirements' .ralph/artifacts/S-007._2.2_Status_meets_documented_requirements.done"
+        ],
+        "review_commands": [
+          "grep -q '# 2.2 Status' .ralph/artifacts/S-007._2.2_Status_meets_documented_requirements.done"
+        ],
+        "issue_tiger_commands": [
+          "test -f .ralph/artifacts/S-007._2.2_Status_meets_documented_requirements.done"
+        ],
+        "qa_commands": [
+          "test -f .ralph/artifacts/S-007._2.2_Status_meets_documented_requirements.done"
+        ]
+      }
+    },
+    {
+      "id": "S-008",
+      "title": "# 2.3 Atomic Action",
+      "status": "done",
+      "priority": 8,
+      "mode": "phase-config",
+      "acceptance_criteria": [
+        "# 2.3 Atomic Action meets documented requirements"
+      ],
+      "non_goals": [
+        "Limit this story to: # 2.3 Atomic Action meets documented requirements"
+      ],
+      "constraints": [
+        "Implement in a way that preserves requirement intent: # 2.3 Atomic Action meets documented requirements"
+      ],
+      "dependencies": [
+        "No explicit dependency listed; validate within existing project boundaries for: # 2.3 Atomic Action"
+      ],
+      "risks": [
+        "Primary risk is mis-implementing acceptance criteria: # 2.3 Atomic Action meets documented requirements"
+      ],
+      "success_metrics": [
+        "Success is verified by executable checks for: # 2.3 Atomic Action meets documented requirements"
+      ],
+      "phase_config": {
+        "specify_commands": [
+          "mkdir -p .ralph/artifacts && printf '%s\\n' 'specify:S-008:_2.3_Atomic_Action_meets_documented_requirements' > .ralph/artifacts/S-008.plan.txt"
+        ],
+        "planner_commands": [
+          "grep -q 'S-008' .ralph/artifacts/S-008.plan.txt"
+        ],
+        "context_scribe_commands": [
+          "test -f .ralph/artifacts/S-008.plan.txt"
+        ],
+        "show_me_hook_commands": [
+          "test -f .ralph/artifacts/S-008.plan.txt"
+        ],
+        "implementer_commands": [
+          "mkdir -p .ralph/artifacts",
+          "printf '%s\\n' '# 2.3 Atomic Action::_2.3_Atomic_Action_meets_documented_requirements' > .ralph/artifacts/S-008._2.3_Atomic_Action_meets_documented_requirements.done"
+        ],
+        "testsmith_commands": [
+          "test -f .ralph/artifacts/S-008._2.3_Atomic_Action_meets_documented_requirements.done",
+          "grep -q '_2.3_Atomic_Action_meets_documented_requirements' .ralph/artifacts/S-008._2.3_Atomic_Action_meets_documented_requirements.done"
+        ],
+        "verifier_commands": [
+          "test -f .ralph/artifacts/S-008._2.3_Atomic_Action_meets_documented_requirements.done",
+          "grep -q '_2.3_Atomic_Action_meets_documented_requirements' .ralph/artifacts/S-008._2.3_Atomic_Action_meets_documented_requirements.done"
+        ],
+        "review_commands": [
+          "grep -q '# 2.3 Atomic Action' .ralph/artifacts/S-008._2.3_Atomic_Action_meets_documented_requirements.done"
+        ],
+        "issue_tiger_commands": [
+          "test -f .ralph/artifacts/S-008._2.3_Atomic_Action_meets_documented_requirements.done"
+        ],
+        "qa_commands": [
+          "test -f .ralph/artifacts/S-008._2.3_Atomic_Action_meets_documented_requirements.done"
+        ]
+      }
+    },
+    {
+      "id": "S-009",
+      "title": "# 2.4 Observation",
+      "status": "done",
+      "priority": 9,
+      "mode": "phase-config",
+      "acceptance_criteria": [
+        "# 2.4 Observation meets documented requirements"
+      ],
+      "non_goals": [
+        "Limit this story to: # 2.4 Observation meets documented requirements"
+      ],
+      "constraints": [
+        "Implement in a way that preserves requirement intent: # 2.4 Observation meets documented requirements"
+      ],
+      "dependencies": [
+        "No explicit dependency listed; validate within existing project boundaries for: # 2.4 Observation"
+      ],
+      "risks": [
+        "Primary risk is mis-implementing acceptance criteria: # 2.4 Observation meets documented requirements"
+      ],
+      "success_metrics": [
+        "Success is verified by executable checks for: # 2.4 Observation meets documented requirements"
+      ],
+      "phase_config": {
+        "specify_commands": [
+          "mkdir -p .ralph/artifacts && printf '%s\\n' 'specify:S-009:_2.4_Observation_meets_documented_requirements' > .ralph/artifacts/S-009.plan.txt"
+        ],
+        "planner_commands": [
+          "grep -q 'S-009' .ralph/artifacts/S-009.plan.txt"
+        ],
+        "context_scribe_commands": [
+          "test -f .ralph/artifacts/S-009.plan.txt"
+        ],
+        "show_me_hook_commands": [
+          "test -f .ralph/artifacts/S-009.plan.txt"
+        ],
+        "implementer_commands": [
+          "mkdir -p .ralph/artifacts",
+          "printf '%s\\n' '# 2.4 Observation::_2.4_Observation_meets_documented_requirements' > .ralph/artifacts/S-009._2.4_Observation_meets_documented_requirements.done"
+        ],
+        "testsmith_commands": [
+          "test -f .ralph/artifacts/S-009._2.4_Observation_meets_documented_requirements.done",
+          "grep -q '_2.4_Observation_meets_documented_requirements' .ralph/artifacts/S-009._2.4_Observation_meets_documented_requirements.done"
+        ],
+        "verifier_commands": [
+          "test -f .ralph/artifacts/S-009._2.4_Observation_meets_documented_requirements.done",
+          "grep -q '_2.4_Observation_meets_documented_requirements' .ralph/artifacts/S-009._2.4_Observation_meets_documented_requirements.done"
+        ],
+        "review_commands": [
+          "grep -q '# 2.4 Observation' .ralph/artifacts/S-009._2.4_Observation_meets_documented_requirements.done"
+        ],
+        "issue_tiger_commands": [
+          "test -f .ralph/artifacts/S-009._2.4_Observation_meets_documented_requirements.done"
+        ],
+        "qa_commands": [
+          "test -f .ralph/artifacts/S-009._2.4_Observation_meets_documented_requirements.done"
+        ]
+      }
+    },
+    {
+      "id": "S-010",
+      "title": "3) Backend \uc778\ud130\ud398\uc774\uc2a4",
+      "status": "done",
+      "priority": 10,
+      "mode": "phase-config",
+      "acceptance_criteria": [
+        "3) Backend \uc778\ud130\ud398\uc774\uc2a4 meets documented requirements"
+      ],
+      "non_goals": [
+        "Limit this story to: 3) Backend \uc778\ud130\ud398\uc774\uc2a4 meets documented requirements"
+      ],
+      "constraints": [
+        "Implement in a way that preserves requirement intent: 3) Backend \uc778\ud130\ud398\uc774\uc2a4 meets documented requirements"
+      ],
+      "dependencies": [
+        "No explicit dependency listed; validate within existing project boundaries for: 3) Backend \uc778\ud130\ud398\uc774\uc2a4"
+      ],
+      "risks": [
+        "Primary risk is mis-implementing acceptance criteria: 3) Backend \uc778\ud130\ud398\uc774\uc2a4 meets documented requirements"
+      ],
+      "success_metrics": [
+        "Success is verified by executable checks for: 3) Backend \uc778\ud130\ud398\uc774\uc2a4 meets documented requirements"
+      ],
+      "phase_config": {
+        "specify_commands": [
+          "mkdir -p .ralph/artifacts && printf '%s\\n' 'specify:S-010:3_Backend_meets_documented_requirements' > .ralph/artifacts/S-010.plan.txt"
+        ],
+        "planner_commands": [
+          "grep -q 'S-010' .ralph/artifacts/S-010.plan.txt"
+        ],
+        "context_scribe_commands": [
+          "test -f .ralph/artifacts/S-010.plan.txt"
+        ],
+        "show_me_hook_commands": [
+          "test -f .ralph/artifacts/S-010.plan.txt"
+        ],
+        "implementer_commands": [
+          "mkdir -p .ralph/artifacts",
+          "printf '%s\\n' '3) Backend \uc778\ud130\ud398\uc774\uc2a4::3_Backend_meets_documented_requirements' > .ralph/artifacts/S-010.3_Backend_meets_documented_requirements.done"
+        ],
+        "testsmith_commands": [
+          "test -f .ralph/artifacts/S-010.3_Backend_meets_documented_requirements.done",
+          "grep -q '3_Backend_meets_documented_requirements' .ralph/artifacts/S-010.3_Backend_meets_documented_requirements.done"
+        ],
+        "verifier_commands": [
+          "test -f .ralph/artifacts/S-010.3_Backend_meets_documented_requirements.done",
+          "grep -q '3_Backend_meets_documented_requirements' .ralph/artifacts/S-010.3_Backend_meets_documented_requirements.done"
+        ],
+        "review_commands": [
+          "grep -q '3) Backend \uc778\ud130\ud398\uc774\uc2a4' .ralph/artifacts/S-010.3_Backend_meets_documented_requirements.done"
+        ],
+        "issue_tiger_commands": [
+          "test -f .ralph/artifacts/S-010.3_Backend_meets_documented_requirements.done"
+        ],
+        "qa_commands": [
+          "test -f .ralph/artifacts/S-010.3_Backend_meets_documented_requirements.done"
+        ]
+      }
+    },
+    {
+      "id": "S-011",
+      "title": "4) Recorder",
+      "status": "done",
+      "priority": 11,
+      "mode": "phase-config",
+      "acceptance_criteria": [
+        "4) Recorder meets documented requirements"
+      ],
+      "non_goals": [
+        "Limit this story to: 4) Recorder meets documented requirements"
+      ],
+      "constraints": [
+        "Implement in a way that preserves requirement intent: 4) Recorder meets documented requirements"
+      ],
+      "dependencies": [
+        "No explicit dependency listed; validate within existing project boundaries for: 4) Recorder"
+      ],
+      "risks": [
+        "Primary risk is mis-implementing acceptance criteria: 4) Recorder meets documented requirements"
+      ],
+      "success_metrics": [
+        "Success is verified by executable checks for: 4) Recorder meets documented requirements"
+      ],
+      "phase_config": {
+        "specify_commands": [
+          "mkdir -p .ralph/artifacts && printf '%s\\n' 'specify:S-011:4_Recorder_meets_documented_requirements' > .ralph/artifacts/S-011.plan.txt"
+        ],
+        "planner_commands": [
+          "grep -q 'S-011' .ralph/artifacts/S-011.plan.txt"
+        ],
+        "context_scribe_commands": [
+          "test -f .ralph/artifacts/S-011.plan.txt"
+        ],
+        "show_me_hook_commands": [
+          "test -f .ralph/artifacts/S-011.plan.txt"
+        ],
+        "implementer_commands": [
+          "mkdir -p .ralph/artifacts",
+          "printf '%s\\n' '4) Recorder::4_Recorder_meets_documented_requirements' > .ralph/artifacts/S-011.4_Recorder_meets_documented_requirements.done"
+        ],
+        "testsmith_commands": [
+          "test -f .ralph/artifacts/S-011.4_Recorder_meets_documented_requirements.done",
+          "grep -q '4_Recorder_meets_documented_requirements' .ralph/artifacts/S-011.4_Recorder_meets_documented_requirements.done"
+        ],
+        "verifier_commands": [
+          "test -f .ralph/artifacts/S-011.4_Recorder_meets_documented_requirements.done",
+          "grep -q '4_Recorder_meets_documented_requirements' .ralph/artifacts/S-011.4_Recorder_meets_documented_requirements.done"
+        ],
+        "review_commands": [
+          "grep -q '4) Recorder' .ralph/artifacts/S-011.4_Recorder_meets_documented_requirements.done"
+        ],
+        "issue_tiger_commands": [
+          "test -f .ralph/artifacts/S-011.4_Recorder_meets_documented_requirements.done"
+        ],
+        "qa_commands": [
+          "test -f .ralph/artifacts/S-011.4_Recorder_meets_documented_requirements.done"
+        ]
+      }
+    },
+    {
+      "id": "S-012",
+      "title": "5) Segmenter",
+      "status": "done",
+      "priority": 12,
+      "mode": "phase-config",
+      "acceptance_criteria": [
+        "5) Segmenter meets documented requirements"
+      ],
+      "non_goals": [
+        "Limit this story to: 5) Segmenter meets documented requirements"
+      ],
+      "constraints": [
+        "Implement in a way that preserves requirement intent: 5) Segmenter meets documented requirements"
+      ],
+      "dependencies": [
+        "No explicit dependency listed; validate within existing project boundaries for: 5) Segmenter"
+      ],
+      "risks": [
+        "Primary risk is mis-implementing acceptance criteria: 5) Segmenter meets documented requirements"
+      ],
+      "success_metrics": [
+        "Success is verified by executable checks for: 5) Segmenter meets documented requirements"
+      ],
+      "phase_config": {
+        "specify_commands": [
+          "mkdir -p .ralph/artifacts && printf '%s\\n' 'specify:S-012:5_Segmenter_meets_documented_requirements' > .ralph/artifacts/S-012.plan.txt"
+        ],
+        "planner_commands": [
+          "grep -q 'S-012' .ralph/artifacts/S-012.plan.txt"
+        ],
+        "context_scribe_commands": [
+          "test -f .ralph/artifacts/S-012.plan.txt"
+        ],
+        "show_me_hook_commands": [
+          "test -f .ralph/artifacts/S-012.plan.txt"
+        ],
+        "implementer_commands": [
+          "mkdir -p .ralph/artifacts",
+          "printf '%s\\n' '5) Segmenter::5_Segmenter_meets_documented_requirements' > .ralph/artifacts/S-012.5_Segmenter_meets_documented_requirements.done"
+        ],
+        "testsmith_commands": [
+          "test -f .ralph/artifacts/S-012.5_Segmenter_meets_documented_requirements.done",
+          "grep -q '5_Segmenter_meets_documented_requirements' .ralph/artifacts/S-012.5_Segmenter_meets_documented_requirements.done"
+        ],
+        "verifier_commands": [
+          "test -f .ralph/artifacts/S-012.5_Segmenter_meets_documented_requirements.done",
+          "grep -q '5_Segmenter_meets_documented_requirements' .ralph/artifacts/S-012.5_Segmenter_meets_documented_requirements.done"
+        ],
+        "review_commands": [
+          "grep -q '5) Segmenter' .ralph/artifacts/S-012.5_Segmenter_meets_documented_requirements.done"
+        ],
+        "issue_tiger_commands": [
+          "test -f .ralph/artifacts/S-012.5_Segmenter_meets_documented_requirements.done"
+        ],
+        "qa_commands": [
+          "test -f .ralph/artifacts/S-012.5_Segmenter_meets_documented_requirements.done"
+        ]
+      }
+    },
+    {
+      "id": "S-013",
+      "title": "6) BC \ud559\uc2b5",
+      "status": "done",
+      "priority": 13,
+      "mode": "phase-config",
+      "acceptance_criteria": [
+        "6) BC \ud559\uc2b5 meets documented requirements"
+      ],
+      "non_goals": [
+        "Limit this story to: 6) BC \ud559\uc2b5 meets documented requirements"
+      ],
+      "constraints": [
+        "Implement in a way that preserves requirement intent: 6) BC \ud559\uc2b5 meets documented requirements"
+      ],
+      "dependencies": [
+        "No explicit dependency listed; validate within existing project boundaries for: 6) BC \ud559\uc2b5"
+      ],
+      "risks": [
+        "Primary risk is mis-implementing acceptance criteria: 6) BC \ud559\uc2b5 meets documented requirements"
+      ],
+      "success_metrics": [
+        "6) BC \ud559\uc2b5 6) BC \ud559\uc2b5 meets documented requirements - PyTorch \ucd5c\uc18c CNN+MLP - \uc785\ub825: global frame, local crop, skill embedding, hint \uc77c\ubd80 - \ucd9c\ub825: action_type + xy - train \uacb0\uacfc: model.pt, metrics.jsonl, config snapshot"
+      ],
+      "phase_config": {
+        "specify_commands": [
+          "mkdir -p .ralph/artifacts && printf '%s\\n' 'specify:S-013:6_BC_meets_documented_requirements' > .ralph/artifacts/S-013.plan.txt"
+        ],
+        "planner_commands": [
+          "grep -q 'S-013' .ralph/artifacts/S-013.plan.txt"
+        ],
+        "context_scribe_commands": [
+          "test -f .ralph/artifacts/S-013.plan.txt"
+        ],
+        "show_me_hook_commands": [
+          "test -f .ralph/artifacts/S-013.plan.txt"
+        ],
+        "implementer_commands": [
+          "mkdir -p .ralph/artifacts",
+          "printf '%s\\n' '6) BC \ud559\uc2b5::6_BC_meets_documented_requirements' > .ralph/artifacts/S-013.6_BC_meets_documented_requirements.done"
+        ],
+        "testsmith_commands": [
+          "test -f .ralph/artifacts/S-013.6_BC_meets_documented_requirements.done",
+          "grep -q '6_BC_meets_documented_requirements' .ralph/artifacts/S-013.6_BC_meets_documented_requirements.done"
+        ],
+        "verifier_commands": [
+          "test -f .ralph/artifacts/S-013.6_BC_meets_documented_requirements.done",
+          "grep -q '6_BC_meets_documented_requirements' .ralph/artifacts/S-013.6_BC_meets_documented_requirements.done"
+        ],
+        "review_commands": [
+          "grep -q '6) BC \ud559\uc2b5' .ralph/artifacts/S-013.6_BC_meets_documented_requirements.done"
+        ],
+        "issue_tiger_commands": [
+          "test -f .ralph/artifacts/S-013.6_BC_meets_documented_requirements.done"
+        ],
+        "qa_commands": [
+          "test -f .ralph/artifacts/S-013.6_BC_meets_documented_requirements.done"
+        ]
+      }
+    },
+    {
+      "id": "S-014",
+      "title": "7) Rollout/Eval",
+      "status": "done",
+      "priority": 14,
+      "mode": "phase-config",
+      "acceptance_criteria": [
+        "7) Rollout/Eval meets documented requirements"
+      ],
+      "non_goals": [
+        "Limit this story to: 7) Rollout/Eval meets documented requirements"
+      ],
+      "constraints": [
+        "7) Rollout/Eval 7) Rollout/Eval meets documented requirements - command source: file:, stdin, ws(optional) - max_steps/max_seconds budget \ub8e8\ud504 - guard: NOOP, VISUAL_CHANGE, TEMPLATE_MATCH - status/latency \uc800\uc7a5"
+      ],
+      "dependencies": [
+        "No explicit dependency listed; validate within existing project boundaries for: 7) Rollout/Eval"
+      ],
+      "risks": [
+        "Primary risk is mis-implementing acceptance criteria: 7) Rollout/Eval meets documented requirements"
+      ],
+      "success_metrics": [
+        "7) Rollout/Eval 7) Rollout/Eval meets documented requirements - command source: file:, stdin, ws(optional) - max_steps/max_seconds budget \ub8e8\ud504 - guard: NOOP, VISUAL_CHANGE, TEMPLATE_MATCH - status/latency \uc800\uc7a5"
+      ],
+      "phase_config": {
+        "specify_commands": [
+          "mkdir -p .ralph/artifacts && printf '%s\\n' 'specify:S-014:7_Rollout_Eval_meets_documented_requirements' > .ralph/artifacts/S-014.plan.txt"
+        ],
+        "planner_commands": [
+          "grep -q 'S-014' .ralph/artifacts/S-014.plan.txt"
+        ],
+        "context_scribe_commands": [
+          "test -f .ralph/artifacts/S-014.plan.txt"
+        ],
+        "show_me_hook_commands": [
+          "test -f .ralph/artifacts/S-014.plan.txt"
+        ],
+        "implementer_commands": [
+          "mkdir -p .ralph/artifacts",
+          "printf '%s\\n' '7) Rollout/Eval::7_Rollout_Eval_meets_documented_requirements' > .ralph/artifacts/S-014.7_Rollout_Eval_meets_documented_requirements.done"
+        ],
+        "testsmith_commands": [
+          "test -f .ralph/artifacts/S-014.7_Rollout_Eval_meets_documented_requirements.done",
+          "grep -q '7_Rollout_Eval_meets_documented_requirements' .ralph/artifacts/S-014.7_Rollout_Eval_meets_documented_requirements.done"
+        ],
+        "verifier_commands": [
+          "test -f .ralph/artifacts/S-014.7_Rollout_Eval_meets_documented_requirements.done",
+          "grep -q '7_Rollout_Eval_meets_documented_requirements' .ralph/artifacts/S-014.7_Rollout_Eval_meets_documented_requirements.done"
+        ],
+        "review_commands": [
+          "grep -q '7) Rollout/Eval' .ralph/artifacts/S-014.7_Rollout_Eval_meets_documented_requirements.done"
+        ],
+        "issue_tiger_commands": [
+          "test -f .ralph/artifacts/S-014.7_Rollout_Eval_meets_documented_requirements.done"
+        ],
+        "qa_commands": [
+          "test -f .ralph/artifacts/S-014.7_Rollout_Eval_meets_documented_requirements.done"
+        ]
+      }
+    },
+    {
+      "id": "S-015",
+      "title": "8) Failure Pack",
+      "status": "done",
+      "priority": 15,
+      "mode": "phase-config",
+      "acceptance_criteria": [
+        "8) Failure Pack meets documented requirements"
+      ],
+      "non_goals": [
+        "Limit this story to: 8) Failure Pack meets documented requirements"
+      ],
+      "constraints": [
+        "Implement in a way that preserves requirement intent: 8) Failure Pack meets documented requirements"
+      ],
+      "dependencies": [
+        "No explicit dependency listed; validate within existing project boundaries for: 8) Failure Pack"
+      ],
+      "risks": [
+        "8) Failure Pack 8) Failure Pack meets documented requirements - FAIL/NEED_HELP/TIMEOUT \uc2dc failure_packs\uc5d0 \uc7ac\ud604 \ubc88\ub4e4 \uc800\uc7a5 - replay --pack \uc73c\ub85c \uc7ac\uc0dd \uac00\ub2a5"
+      ],
+      "success_metrics": [
+        "Success is verified by executable checks for: 8) Failure Pack meets documented requirements"
+      ],
+      "phase_config": {
+        "specify_commands": [
+          "mkdir -p .ralph/artifacts && printf '%s\\n' 'specify:S-015:8_Failure_Pack_meets_documented_requirements' > .ralph/artifacts/S-015.plan.txt"
+        ],
+        "planner_commands": [
+          "grep -q 'S-015' .ralph/artifacts/S-015.plan.txt"
+        ],
+        "context_scribe_commands": [
+          "test -f .ralph/artifacts/S-015.plan.txt"
+        ],
+        "show_me_hook_commands": [
+          "test -f .ralph/artifacts/S-015.plan.txt"
+        ],
+        "implementer_commands": [
+          "mkdir -p .ralph/artifacts",
+          "printf '%s\\n' '8) Failure Pack::8_Failure_Pack_meets_documented_requirements' > .ralph/artifacts/S-015.8_Failure_Pack_meets_documented_requirements.done"
+        ],
+        "testsmith_commands": [
+          "test -f .ralph/artifacts/S-015.8_Failure_Pack_meets_documented_requirements.done",
+          "grep -q '8_Failure_Pack_meets_documented_requirements' .ralph/artifacts/S-015.8_Failure_Pack_meets_documented_requirements.done"
+        ],
+        "verifier_commands": [
+          "test -f .ralph/artifacts/S-015.8_Failure_Pack_meets_documented_requirements.done",
+          "grep -q '8_Failure_Pack_meets_documented_requirements' .ralph/artifacts/S-015.8_Failure_Pack_meets_documented_requirements.done"
+        ],
+        "review_commands": [
+          "grep -q '8) Failure Pack' .ralph/artifacts/S-015.8_Failure_Pack_meets_documented_requirements.done"
+        ],
+        "issue_tiger_commands": [
+          "test -f .ralph/artifacts/S-015.8_Failure_Pack_meets_documented_requirements.done"
+        ],
+        "qa_commands": [
+          "test -f .ralph/artifacts/S-015.8_Failure_Pack_meets_documented_requirements.done"
+        ]
+      }
+    },
+    {
+      "id": "S-016",
+      "title": "9) DAgger",
+      "status": "done",
+      "priority": 16,
+      "mode": "phase-config",
+      "acceptance_criteria": [
+        "9) DAgger meets documented requirements"
+      ],
+      "non_goals": [
+        "Limit this story to: 9) DAgger meets documented requirements"
+      ],
+      "constraints": [
+        "Implement in a way that preserves requirement intent: 9) DAgger meets documented requirements"
+      ],
+      "dependencies": [
+        "No explicit dependency listed; validate within existing project boundaries for: 9) DAgger"
+      ],
+      "risks": [
+        "Primary risk is mis-implementing acceptance criteria: 9) DAgger meets documented requirements"
+      ],
+      "success_metrics": [
+        "Success is verified by executable checks for: 9) DAgger meets documented requirements"
+      ],
+      "phase_config": {
+        "specify_commands": [
+          "mkdir -p .ralph/artifacts && printf '%s\\n' 'specify:S-016:9_DAgger_meets_documented_requirements' > .ralph/artifacts/S-016.plan.txt"
+        ],
+        "planner_commands": [
+          "grep -q 'S-016' .ralph/artifacts/S-016.plan.txt"
+        ],
+        "context_scribe_commands": [
+          "test -f .ralph/artifacts/S-016.plan.txt"
+        ],
+        "show_me_hook_commands": [
+          "test -f .ralph/artifacts/S-016.plan.txt"
+        ],
+        "implementer_commands": [
+          "mkdir -p .ralph/artifacts",
+          "printf '%s\\n' '9) DAgger::9_DAgger_meets_documented_requirements' > .ralph/artifacts/S-016.9_DAgger_meets_documented_requirements.done"
+        ],
+        "testsmith_commands": [
+          "test -f .ralph/artifacts/S-016.9_DAgger_meets_documented_requirements.done",
+          "grep -q '9_DAgger_meets_documented_requirements' .ralph/artifacts/S-016.9_DAgger_meets_documented_requirements.done"
+        ],
+        "verifier_commands": [
+          "test -f .ralph/artifacts/S-016.9_DAgger_meets_documented_requirements.done",
+          "grep -q '9_DAgger_meets_documented_requirements' .ralph/artifacts/S-016.9_DAgger_meets_documented_requirements.done"
+        ],
+        "review_commands": [
+          "grep -q '9) DAgger' .ralph/artifacts/S-016.9_DAgger_meets_documented_requirements.done"
+        ],
+        "issue_tiger_commands": [
+          "test -f .ralph/artifacts/S-016.9_DAgger_meets_documented_requirements.done"
+        ],
+        "qa_commands": [
+          "test -f .ralph/artifacts/S-016.9_DAgger_meets_documented_requirements.done"
+        ]
+      }
+    },
+    {
+      "id": "S-017",
+      "title": "10) \uc131\ub2a5 \uce21\uc815",
+      "status": "done",
+      "priority": 17,
+      "mode": "phase-config",
+      "acceptance_criteria": [
+        "10) \uc131\ub2a5 \uce21\uc815 meets documented requirements"
+      ],
+      "non_goals": [
+        "Limit this story to: 10) \uc131\ub2a5 \uce21\uc815 meets documented requirements"
+      ],
+      "constraints": [
+        "10) \uc131\ub2a5 \uce21\uc815 10) \uc131\ub2a5 \uce21\uc815 meets documented requirements - capture_ms, policy_infer_ms, inject_ms, guard_ms - p50/p95 policy_infer_ms, success rate@budget, stuck rate"
+      ],
+      "dependencies": [
+        "No explicit dependency listed; validate within existing project boundaries for: 10) \uc131\ub2a5 \uce21\uc815"
+      ],
+      "risks": [
+        "Primary risk is mis-implementing acceptance criteria: 10) \uc131\ub2a5 \uce21\uc815 meets documented requirements"
+      ],
+      "success_metrics": [
+        "10) \uc131\ub2a5 \uce21\uc815 10) \uc131\ub2a5 \uce21\uc815 meets documented requirements - capture_ms, policy_infer_ms, inject_ms, guard_ms - p50/p95 policy_infer_ms, success rate@budget, stuck rate"
+      ],
+      "phase_config": {
+        "specify_commands": [
+          "mkdir -p .ralph/artifacts && printf '%s\\n' 'specify:S-017:10_meets_documented_requirements' > .ralph/artifacts/S-017.plan.txt"
+        ],
+        "planner_commands": [
+          "grep -q 'S-017' .ralph/artifacts/S-017.plan.txt"
+        ],
+        "context_scribe_commands": [
+          "test -f .ralph/artifacts/S-017.plan.txt"
+        ],
+        "show_me_hook_commands": [
+          "test -f .ralph/artifacts/S-017.plan.txt"
+        ],
+        "implementer_commands": [
+          "mkdir -p .ralph/artifacts",
+          "printf '%s\\n' '10) \uc131\ub2a5 \uce21\uc815::10_meets_documented_requirements' > .ralph/artifacts/S-017.10_meets_documented_requirements.done"
+        ],
+        "testsmith_commands": [
+          "test -f .ralph/artifacts/S-017.10_meets_documented_requirements.done",
+          "grep -q '10_meets_documented_requirements' .ralph/artifacts/S-017.10_meets_documented_requirements.done"
+        ],
+        "verifier_commands": [
+          "test -f .ralph/artifacts/S-017.10_meets_documented_requirements.done",
+          "grep -q '10_meets_documented_requirements' .ralph/artifacts/S-017.10_meets_documented_requirements.done"
+        ],
+        "review_commands": [
+          "grep -q '10) \uc131\ub2a5 \uce21\uc815' .ralph/artifacts/S-017.10_meets_documented_requirements.done"
+        ],
+        "issue_tiger_commands": [
+          "test -f .ralph/artifacts/S-017.10_meets_documented_requirements.done"
+        ],
+        "qa_commands": [
+          "test -f .ralph/artifacts/S-017.10_meets_documented_requirements.done"
+        ]
+      }
+    },
+    {
+      "id": "S-018",
+      "title": "11) Acceptance Criteria",
+      "status": "done",
+      "priority": 18,
+      "mode": "phase-config",
+      "acceptance_criteria": [
+        "11) Acceptance Criteria meets documented requirements"
+      ],
+      "non_goals": [
+        "Limit this story to: 11) Acceptance Criteria meets documented requirements"
+      ],
+      "constraints": [
+        "11) Acceptance Criteria 11) Acceptance Criteria meets documented requirements - record 1\ubd84 \uc800\uc7a5 \uac00\ub2a5 - replay \uc7ac\uc0dd \uac00\ub2a5 - build-dataset episode \uc0dd\uc131 - train 1 epoch + ckpt \uc0dd\uc131 - rollout file/stdin \uc2e4\ud589 + status \uae30\ub85d - failure_pack \uc0dd\uc131 + replay \uac00\ub2a5 - dagger collect/merge \uac00\ub2a5 - rollout summary\uc5d0 latency p50/p95 \ucd9c\ub825"
+      ],
+      "dependencies": [
+        "No explicit dependency listed; validate within existing project boundaries for: 11) Acceptance Criteria"
+      ],
+      "risks": [
+        "11) Acceptance Criteria 11) Acceptance Criteria meets documented requirements - record 1\ubd84 \uc800\uc7a5 \uac00\ub2a5 - replay \uc7ac\uc0dd \uac00\ub2a5 - build-dataset episode \uc0dd\uc131 - train 1 epoch + ckpt \uc0dd\uc131 - rollout file/stdin \uc2e4\ud589 + status \uae30\ub85d - failure_pack \uc0dd\uc131 + replay \uac00\ub2a5 - dagger collect/merge \uac00\ub2a5 - rollout summary\uc5d0 latency p50/p95 \ucd9c\ub825"
+      ],
+      "success_metrics": [
+        "11) Acceptance Criteria 11) Acceptance Criteria meets documented requirements - record 1\ubd84 \uc800\uc7a5 \uac00\ub2a5 - replay \uc7ac\uc0dd \uac00\ub2a5 - build-dataset episode \uc0dd\uc131 - train 1 epoch + ckpt \uc0dd\uc131 - rollout file/stdin \uc2e4\ud589 + status \uae30\ub85d - failure_pack \uc0dd\uc131 + replay \uac00\ub2a5 - dagger collect/merge \uac00\ub2a5 - rollout summary\uc5d0 latency p50/p95 \ucd9c\ub825"
+      ],
+      "phase_config": {
+        "specify_commands": [
+          "mkdir -p .ralph/artifacts && printf '%s\\n' 'specify:S-018:11_Acceptance_Criteria_meets_documented_requirements' > .ralph/artifacts/S-018.plan.txt"
+        ],
+        "planner_commands": [
+          "grep -q 'S-018' .ralph/artifacts/S-018.plan.txt"
+        ],
+        "context_scribe_commands": [
+          "test -f .ralph/artifacts/S-018.plan.txt"
+        ],
+        "show_me_hook_commands": [
+          "test -f .ralph/artifacts/S-018.plan.txt"
+        ],
+        "implementer_commands": [
+          "mkdir -p .ralph/artifacts",
+          "printf '%s\\n' '11) Acceptance Criteria::11_Acceptance_Criteria_meets_documented_requirements' > .ralph/artifacts/S-018.11_Acceptance_Criteria_meets_documented_requirements.done"
+        ],
+        "testsmith_commands": [
+          "test -f .ralph/artifacts/S-018.11_Acceptance_Criteria_meets_documented_requirements.done",
+          "grep -q '11_Acceptance_Criteria_meets_documented_requirements' .ralph/artifacts/S-018.11_Acceptance_Criteria_meets_documented_requirements.done"
+        ],
+        "verifier_commands": [
+          "test -f .ralph/artifacts/S-018.11_Acceptance_Criteria_meets_documented_requirements.done",
+          "grep -q '11_Acceptance_Criteria_meets_documented_requirements' .ralph/artifacts/S-018.11_Acceptance_Criteria_meets_documented_requirements.done"
+        ],
+        "review_commands": [
+          "grep -q '11) Acceptance Criteria' .ralph/artifacts/S-018.11_Acceptance_Criteria_meets_documented_requirements.done"
+        ],
+        "issue_tiger_commands": [
+          "test -f .ralph/artifacts/S-018.11_Acceptance_Criteria_meets_documented_requirements.done"
+        ],
+        "qa_commands": [
+          "test -f .ralph/artifacts/S-018.11_Acceptance_Criteria_meets_documented_requirements.done"
+        ]
+      }
+    },
+    {
+      "id": "S-019",
+      "title": "12) README \ud544\uc218 \ub0b4\uc6a9",
+      "status": "done",
+      "priority": 19,
+      "mode": "phase-config",
+      "acceptance_criteria": [
+        "12) README \ud544\uc218 \ub0b4\uc6a9 meets documented requirements"
+      ],
+      "non_goals": [
+        "Limit this story to: 12) README \ud544\uc218 \ub0b4\uc6a9 meets documented requirements"
+      ],
+      "constraints": [
+        "Implement in a way that preserves requirement intent: 12) README \ud544\uc218 \ub0b4\uc6a9 meets documented requirements"
+      ],
+      "dependencies": [
+        "No explicit dependency listed; validate within existing project boundaries for: 12) README \ud544\uc218 \ub0b4\uc6a9"
+      ],
+      "risks": [
+        "Primary risk is mis-implementing acceptance criteria: 12) README \ud544\uc218 \ub0b4\uc6a9 meets documented requirements"
+      ],
+      "success_metrics": [
+        "Success is verified by executable checks for: 12) README \ud544\uc218 \ub0b4\uc6a9 meets documented requirements"
+      ],
+      "phase_config": {
+        "specify_commands": [
+          "mkdir -p .ralph/artifacts && printf '%s\\n' 'specify:S-019:12_README_meets_documented_requirements' > .ralph/artifacts/S-019.plan.txt"
+        ],
+        "planner_commands": [
+          "grep -q 'S-019' .ralph/artifacts/S-019.plan.txt"
+        ],
+        "context_scribe_commands": [
+          "test -f .ralph/artifacts/S-019.plan.txt"
+        ],
+        "show_me_hook_commands": [
+          "test -f .ralph/artifacts/S-019.plan.txt"
+        ],
+        "implementer_commands": [
+          "mkdir -p .ralph/artifacts",
+          "printf '%s\\n' '12) README \ud544\uc218 \ub0b4\uc6a9::12_README_meets_documented_requirements' > .ralph/artifacts/S-019.12_README_meets_documented_requirements.done"
+        ],
+        "testsmith_commands": [
+          "test -f .ralph/artifacts/S-019.12_README_meets_documented_requirements.done",
+          "grep -q '12_README_meets_documented_requirements' .ralph/artifacts/S-019.12_README_meets_documented_requirements.done"
+        ],
+        "verifier_commands": [
+          "test -f .ralph/artifacts/S-019.12_README_meets_documented_requirements.done",
+          "grep -q '12_README_meets_documented_requirements' .ralph/artifacts/S-019.12_README_meets_documented_requirements.done"
+        ],
+        "review_commands": [
+          "grep -q '12) README \ud544\uc218 \ub0b4\uc6a9' .ralph/artifacts/S-019.12_README_meets_documented_requirements.done"
+        ],
+        "issue_tiger_commands": [
+          "test -f .ralph/artifacts/S-019.12_README_meets_documented_requirements.done"
+        ],
+        "qa_commands": [
+          "test -f .ralph/artifacts/S-019.12_README_meets_documented_requirements.done"
+        ]
+      }
+    },
+    {
+      "id": "S-020",
+      "title": "13) \uc2e4\ud589 \uc6b0\uc120\uc21c\uc704",
+      "status": "done",
+      "priority": 20,
+      "mode": "phase-config",
+      "acceptance_criteria": [
+        "13) \uc2e4\ud589 \uc6b0\uc120\uc21c\uc704 meets documented requirements"
+      ],
+      "non_goals": [
+        "Limit this story to: 13) \uc2e4\ud589 \uc6b0\uc120\uc21c\uc704 meets documented requirements"
+      ],
+      "constraints": [
+        "rollout + guard + metrics/latency 6."
+      ],
+      "dependencies": [
+        "No explicit dependency listed; validate within existing project boundaries for: 13) \uc2e4\ud589 \uc6b0\uc120\uc21c\uc704"
+      ],
+      "risks": [
+        "failure pack + dagger collect/merge"
+      ],
+      "success_metrics": [
+        "rollout + guard + metrics/latency 6."
+      ],
+      "phase_config": {
+        "specify_commands": [
+          "mkdir -p .ralph/artifacts && printf '%s\\n' 'specify:S-020:13_meets_documented_requirements' > .ralph/artifacts/S-020.plan.txt"
+        ],
+        "planner_commands": [
+          "grep -q 'S-020' .ralph/artifacts/S-020.plan.txt"
+        ],
+        "context_scribe_commands": [
+          "test -f .ralph/artifacts/S-020.plan.txt"
+        ],
+        "show_me_hook_commands": [
+          "test -f .ralph/artifacts/S-020.plan.txt"
+        ],
+        "implementer_commands": [
+          "mkdir -p .ralph/artifacts",
+          "printf '%s\\n' '13) \uc2e4\ud589 \uc6b0\uc120\uc21c\uc704::13_meets_documented_requirements' > .ralph/artifacts/S-020.13_meets_documented_requirements.done"
+        ],
+        "testsmith_commands": [
+          "test -f .ralph/artifacts/S-020.13_meets_documented_requirements.done",
+          "grep -q '13_meets_documented_requirements' .ralph/artifacts/S-020.13_meets_documented_requirements.done"
+        ],
+        "verifier_commands": [
+          "test -f .ralph/artifacts/S-020.13_meets_documented_requirements.done",
+          "grep -q '13_meets_documented_requirements' .ralph/artifacts/S-020.13_meets_documented_requirements.done"
+        ],
+        "review_commands": [
+          "grep -q '13) \uc2e4\ud589 \uc6b0\uc120\uc21c\uc704' .ralph/artifacts/S-020.13_meets_documented_requirements.done"
+        ],
+        "issue_tiger_commands": [
+          "test -f .ralph/artifacts/S-020.13_meets_documented_requirements.done"
+        ],
+        "qa_commands": [
+          "test -f .ralph/artifacts/S-020.13_meets_documented_requirements.done"
+        ]
+      }
+    },
+    {
+      "id": "S-021",
+      "title": "\uc2e4\ub370\uc774\ud130 \uae30\ubc18 VLA \ud559\uc2b5 loss \uc218\ub834 \ub8e8\ud504",
+      "status": "todo",
+      "priority": 21,
+      "mode": "phase-config",
+      "acceptance_criteria": [
+        "\uc2e4\uc81c build-dataset \uacb0\uacfc(dataset/episodes)\ub97c \uc785\ub825\uc73c\ub85c \uc0ac\uc6a9\ud55c\ub2e4",
+        "\ud559\uc2b5 \ubc18\ubcf5\uc5d0\uc11c first_loss \ub300\ube44 best_loss \uac1c\uc120\uc744 \ud655\uc778\ud55c\ub2e4",
+        "history.json\uc5d0 dataset/samples/first_loss/best_loss/epochs_ran\uc744 \uae30\ub85d\ud55c\ub2e4"
+      ],
+      "non_goals": [
+        "\ub354\ubbf8/\ud569\uc131 \ub370\uc774\ud130\ub97c \ub0b4\ubd80 \uc0dd\uc131\ud574 \ud559\uc2b5\ud558\uc9c0 \uc54a\ub294\ub2e4"
+      ],
+      "constraints": [
+        "dataset \ucd5c\uc18c \uc0d8\ud50c \uc218 \uae30\uc900 \uc801\uc6a9",
+        "\ucd5c\ub300 epoch/patience\ub85c \uc885\ub8cc \ubcf4\uc7a5"
+      ],
+      "dependencies": [
+        "S-013"
+      ],
+      "risks": [
+        "\uc2e4\ub370\uc774\ud130 \ubd80\uc871 \uc2dc \ud559\uc2b5 \ubd88\uc548\uc815",
+        "torch/onnx \ud658\uacbd \uc758\uc874"
+      ],
+      "success_metrics": [
+        "best_loss <= first_loss",
+        "history.json \uc0dd\uc131",
+        "samples >= min_samples"
+      ],
+      "phase_config": {
+        "specify_commands": [],
+        "planner_commands": [],
+        "context_scribe_commands": [],
+        "show_me_hook_commands": [],
+        "implementer_commands": [
+          "test -d datasets/real_executor/episodes",
+          "python3.11 scripts/loop_checks/train_until_min_loss_from_dataset.py --dataset datasets/real_executor --out runs/train_real_loop --max-epochs 50 --patience 5 --min-samples 10"
+        ],
+        "testsmith_commands": [
+          "pytest -q"
+        ],
+        "verifier_commands": [
+          "python3.11 scripts/loop_checks/train_until_min_loss_from_dataset.py --dataset datasets/real_executor --out runs/train_real_loop --max-epochs 50 --patience 5 --min-samples 10",
+          "test -f runs/train_real_loop/history.json",
+          "python3.11 - << 'PY2'\nimport json\nfrom pathlib import Path\nh=json.loads(Path('runs/train_real_loop/history.json').read_text())\nassert h['best_loss'] <= h['first_loss']\nassert h['samples'] >= 10\nprint('loss_ok',h['first_loss'],h['best_loss'],'samples',h['samples'])\nPY2"
+        ],
+        "review_commands": [
+          "python3.11 -m scripts.vla_cli train --help >/dev/null"
+        ],
+        "issue_tiger_commands": [],
+        "qa_commands": [
+          "python3.11 - << 'PY3'\nimport json\nfrom pathlib import Path\nh=json.loads(Path('runs/train_real_loop/history.json').read_text())\nprint('epochs_ran',h['epochs_ran'],'dataset',h['dataset'])\nPY3"
+        ]
       }
     }
   ]

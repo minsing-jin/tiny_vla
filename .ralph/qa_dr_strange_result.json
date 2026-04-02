@@ -1,0 +1,18 @@
+{
+  "returncode": 1,
+  "failed_story_ids": [],
+  "failing_checks": [
+    {
+      "name": "discover:pytest",
+      "command": "python3 -m pytest -q",
+      "story_id": "",
+      "phase": "discover",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "/Library/Frameworks/Python.framework/Versions/3.10/bin/python3: No module named pytest\n"
+    }
+  ],
+  "pending_story_ids": [],
+  "total_checks": 1,
+  "evidence_file": "/Users/jinminseong/Desktop/tiny_vla/E2E_EVIDENCE.md"
+}

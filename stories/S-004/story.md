@@ -1,33 +1,29 @@
-# Story S-004: Offline BC Training and Model Export
+# Story S-004: # 1.2 CLI 커맨드(필수)
 
 ## Project Context
 - project: VLA Executor Framework
-- goal: Train and evaluate an executor-only VLA that consumes external planner commands and executes atomic UI actions with record/build/train/rollout/dagger loop.
+- goal: 외부 VLM이 생성한 Command를 화면 원자 액션으로 안정적으로 실행하는 Executor-VLA 구축
 
 ## Goal
-Offline BC Training and Model Export
+# 1.2 CLI 커맨드(필수)
 
 ## Acceptance Criteria
-- PyTorch baseline model supports command-conditioned action prediction.
-- train CLI runs 1 epoch from built dataset and produces model.pt, metrics.jsonl, config snapshot.
-- Reported metrics include action_type_acc, click_dist_px, heatmap_topk_hit@k.
-- export CLI provides ONNX export path for trained model.
+- # 1.2 CLI 커맨드(필수) meets documented requirements
 
 ## Non-goals
-- SOTA model quality
-- Large-scale distributed training
+- Keep scope strictly to '# 1.2 CLI 커맨드(필수)'
 
 ## Constraints
-- Start with simple CNN+MLP
-- Favor pipeline completeness and runtime simplicity
+- Respect budget-related requirement from PRD context
+- Respect latency-related requirement from PRD context
 
 ## Dependencies
-- S-003
+- (none)
 
 ## Risks
-- Dataset sparsity may destabilize training
-- Optional dependency friction (torch)
+- Potential risk risk inferred from PRD context
 
 ## Success Metrics
-- vla train completes 1 epoch without runtime error
+- Latency target is satisfied
+- Automated tests pass for acceptance criteria
 
